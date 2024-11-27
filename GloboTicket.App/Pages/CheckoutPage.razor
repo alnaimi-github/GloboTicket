@@ -1,0 +1,112 @@
+﻿@page "/checkout"
+
+<h3>Your just one step away from placing your order.</h3>
+
+<h4>Your profile</h4>
+
+@if (_profile != null)
+{
+    <EditForm Model="@_profile" OnValidSubmit="@UpdateProfile">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="row mb-3">
+            <label for="firstName" class="col-form-label col-md-3">First name</label>
+            <div class="col-md-8">
+                <InputText id="firstName" class="form-control col-md-8" @bind-Value="@_profile.FirstName"></InputText>
+            </div>
+            <ValidationMessage class="offset-md-3 col-md-8" For="@(() => _profile.FirstName)" />
+        </div>
+
+        <div class="row mb-3">
+            <label for="lastName" class="col-form-label col-md-3">Last name</label>
+            <div class="col-md-8">
+                <InputText id="lastName" class="form-control col-md-8" @bind-Value="@_profile.LastName"></InputText>
+            </div>
+            <ValidationMessage class="offset-md-3 col-md-8" For="@(() => _profile.LastName)" />
+        </div>
+
+        <div class="row mb-3">
+            <label for="email" class="col-form-label col-md-3">Email</label>
+            <div class="col-md-8">
+                <InputText id="email" class="form-control col-md-8" @bind-Value="@_profile.Email"></InputText>
+            </div>
+            <ValidationMessage class="offset-md-3 col-md-8" For="@(() => _profile.Email)" />
+        </div>
+
+        <div class="row mb-3">
+            <label for="address" class="col-form-label col-md-3">Address</label>
+            <div class="col-md-8">
+                <InputText id="address" class="form-control col-md-8" @bind-Value="@_profile.Address"></InputText>
+            </div>
+            <ValidationMessage class="offset-md-3 col-md-8" For="@(() => _profile.Address)" />
+        </div>
+
+        <div class="row mb-3">
+            <label for="zipCode" class="col-form-label col-md-3">Zip Code</label>
+            <div class="col-md-8">
+                <InputText id="zipCode" class="form-control col-md-8" @bind-Value="@_profile.ZipCode"></InputText>
+            </div>
+            <ValidationMessage class="offset-md-3 col-md-8" For="@(() => _profile.ZipCode)" />
+        </div>
+
+        <div class="row mb-3">
+            <label for="city" class="col-form-label col-md-3">City</label>
+            <div class="col-md-8">
+                <InputText id="city" class="form-control col-md-8" @bind-Value="@_profile.City"></InputText>
+            </div>
+            <ValidationMessage class="offset-md-3 col-md-8" For="@(() => _profile.City)" />
+        </div>
+
+        <div class="row mb-3">
+            <label for="country" class="col-form-label col-md-3">Country</label>
+            <div class="col-md-8">
+                <InputText id="country" class="form-control col-md-8" @bind-Value="@_profile.Country"></InputText>
+            </div>
+            <ValidationMessage class="offset-md-3 col-md-8" For="@(() => _profile.Country)" />
+        </div>
+
+        <button type="submit" class="btn btn-primary me-1">Update profile</button>
+    </EditForm>
+}
+
+<h4>Your payment details</h4>
+
+<EditForm Model="@_paymentDetails" OnValidSubmit="@PlaceOrder">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="row mb-3">
+        <label for="cardName" class="col-form-label col-md-3">Card name</label>
+        <div class="col-md-8">
+            <InputText id="cardName" class="form-control col-md-8" @bind-Value="@_paymentDetails.CardName"></InputText>
+        </div>
+        <ValidationMessage class="offset-md-3 col-md-8" For="@(() => _paymentDetails.CardName)" />
+    </div>
+
+    <div class="row mb-3">
+        <label for="cardNumber" class="col-form-label col-md-3">Card number</label>
+        <div class="col-md-8">
+            <InputText id="cardNumber" class="form-control col-md-8" @bind-Value="@_paymentDetails.CardNumber"></InputText>
+        </div>
+        <ValidationMessage class="offset-md-3 col-md-8" For="@(() => _paymentDetails.CardNumber)" />
+    </div>
+
+    <div class="row mb-3">
+        <label for="cardExpiration" class="col-form-label col-md-3">Card expiration</label>
+        <div class="col-md-8">
+            <InputText id="cardExpiration" class="form-control col-md-8" @bind-Value="@_paymentDetails.CardExpiration"></InputText>
+        </div>
+        <ValidationMessage class="offset-md-3 col-md-8" For="@(() => _paymentDetails.CardExpiration)" />
+    </div>
+
+    <div class="row mb-3">
+        <label for="cvvCode" class="col-form-label col-md-3">CVV code</label>
+        <div class="col-md-8">
+            <InputText id="cvvCode" class="form-control col-md-8" @bind-Value="@_paymentDetails.CvvCode"></InputText>
+        </div>
+        <ValidationMessage class="offset-md-3 col-md-8" For="@(() => _paymentDetails.CvvCode)" />
+    </div>
+
+    <button type="submit" class="btn btn-primary me-1">Place Order</button>
+</EditForm>

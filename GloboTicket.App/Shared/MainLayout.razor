@@ -1,0 +1,22 @@
+﻿@using GloboTicket.App.Components
+@inherits LayoutComponentBase
+
+<PageTitle>GloboTicket.App</PageTitle>
+
+<div>
+    <header>
+        <h1><img src="img/globoticket-horizontal-white.svg"></h1>
+        <div class="header-cart">
+            <AuthorizeView>
+                <ShoppingCartWidget></ShoppingCartWidget>
+            </AuthorizeView>
+            <LoginDisplay />
+        </div>
+        
+    </header>
+    <main>
+       <article class="content px-4 container">
+            @Body
+        </article>
+    </main>
+</div>

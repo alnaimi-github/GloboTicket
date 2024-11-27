@@ -1,0 +1,9 @@
+﻿<div>
+    @* this random div is used to make scoped css work... *@
+    <div class="toast-container">
+        @foreach (var notification in Notifications)
+        {
+            <ToastComponent Notification="@notification" OnClick="RemoveNotification"></ToastComponent>
+        }
+    </div>
+</div>

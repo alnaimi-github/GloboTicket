@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33103.184
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GloboTicket.App", "GloboTicket.App\GloboTicket.App.csproj", "{A6499701-1EA5-49D2-945E-2907FBBC2AB4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "App", "App", "{42D2BD8F-2C8B-47CC-89C8-56616D61D1D6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Orleans", "Orleans", "{3B65DFCF-868C-4209-BC5E-C68B3FAE9285}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A6499701-1EA5-49D2-945E-2907FBBC2AB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6499701-1EA5-49D2-945E-2907FBBC2AB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6499701-1EA5-49D2-945E-2907FBBC2AB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6499701-1EA5-49D2-945E-2907FBBC2AB4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A6499701-1EA5-49D2-945E-2907FBBC2AB4} = {42D2BD8F-2C8B-47CC-89C8-56616D61D1D6}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E391F5BB-7C44-4D4C-9E6E-8E81D6AE5697}
+	EndGlobalSection
+EndGlobal

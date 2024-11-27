@@ -1,0 +1,63 @@
+﻿@page "/"
+
+<PageTitle>Index</PageTitle>
+
+<div class="form-floating w-25">
+    
+    <select @onchange="CategorySelected" class="form-select">
+        <option>All</option>
+        @foreach (var item in _categories)
+        {
+            <option value="@item">@item</option>
+        }
+    </select>
+    <label for="floatingSelect">Categories</label>
+</div>
+
+
+<div class="row">
+    @if (!_events.Any())
+    {
+        <text>No events were found.</text>
+    }
+    else
+    {
+        <table class="table">
+            <thead>
+                <tr class="columnHeader">
+                    <th></th>
+                    <th>DATE</th>
+                    <th>NAME</th>
+                    <th>ARTIST</th>
+                    <th>PRICE</th>
+                    <AuthorizeView>
+                        <Authorized>
+                            <th></th>
+                        </Authorized>
+                    </AuthorizeView>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var eventDetails in _events)
+                {
+                    <tr>
+                        <td><img src=@eventDetails.ImageUrl height="100" width="150" /></td>
+                        <td>@eventDetails.Date.ToShortDateString()</td>
+                        <td>@eventDetails.Name</td>
+                        <td>@eventDetails.Artist</td>
+                        <td>@eventDetails.Price.ToString("C")</td>
+                        <AuthorizeView>
+                            <Authorized>
+                                <td>
+                                    <button class="btn btn-primary" @onclick='() => NavigateToEventDetails(eventDetails.Id)'>
+                                            Purchase details
+                                        </button>
+                                    </td>
+                                    </Authorized>
+                        </AuthorizeView>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

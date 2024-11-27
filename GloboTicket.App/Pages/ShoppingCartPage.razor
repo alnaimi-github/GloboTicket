@@ -1,0 +1,52 @@
+﻿@page "/cart"
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>EVENT NAME</th>
+        <th>DATE</th>
+        <th>PRICE PER TICKET</th>
+        <th>QUANTITY</th>
+        <th>TOTAL</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in cartItems)
+    {
+        <tr>
+            <td>@item.EventName</td>
+            <td>@item.EventDate.ToShortDateString()</td>
+            <td class="fw-bold">$@item.Price</td>
+            <td>
+                <input type="number" min="1" max="@item.Quantity + 5" @bind-value="@item.Quantity"/>
+                <button class="btn btn-secondary" @onclick="@(() => UpdateItem(@item))">UPDATE</button>
+            </td>
+            <td class="bold">$@(item.TotalPrice) </td>
+            <td>
+                <a @onclick="() => RemoveItem(item.EventId)">
+                    <img class="cancelIcon" src="img/times.svg" />
+                </a>
+            </td>
+        </tr>
+    }
+
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="4"></td>
+        <td class="text-right bold big">Total:</td>
+        <td class="text-right bold big" colspan="2">
+            $@cartItems.Sum(ci => ci.TotalPrice)
+        </td>
+    </tr>
+    </tfoot>
+</table>
+
+<button class="btn btn-primary" @onclick="PlaceOrder">PLACE ORDER</button>
+
+<div class="mt-2">
+    <a @onclick="NavigateBackToHome" class="link-primary text-decoration-none">
+        <img class="backIcon" src="img/back-arrow.svg" /> Back to event catalog
+    </a>
+</div>

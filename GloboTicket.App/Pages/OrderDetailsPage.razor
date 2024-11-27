@@ -1,0 +1,46 @@
+﻿@page "/orders/{orderId:long}"
+
+@if (order != null)
+{
+    <h3>Overview of your order @order.Id</h3>
+
+    <p><strong>Order placed on </strong> @order.OrderPlaced.ToShortDateString()</p>
+    <p><strong> Payment status: </strong> @order.PaymentStatus.ToString()</p>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>EVENT</th>
+            <th>TICKETS</th>
+            <th>UNIT PRICE</th>
+            <th>TOTAL PRICE</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var orderLine in order.OrderLines)
+        {
+            <tr>
+                <td>@orderLine.EventName</td>
+                <td>@orderLine.TicketAmount</td>
+                <td>$@orderLine.UnitPrice</td>
+                <td>$@orderLine.TotalPrice</td>
+            </tr>
+        }
+        </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="2"></td>
+            <td class="text-right bold big">Total:</td>
+            <td class="text-right bold big">
+                $@order.OrderTotal
+            </td>
+        </tr>
+        </tfoot>
+    </table>
+}
+
+<div class="mt-2">
+    <a @onclick="NavigateBackToOrders" class="link-primary text-decoration-none">
+        <img class="backIcon" src="img/back-arrow.svg" /> Back to order overview
+    </a>
+</div>

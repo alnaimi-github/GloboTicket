@@ -1,0 +1,32 @@
+﻿@page "/orders"
+
+<h3>Your orders</h3>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>DATE</th>
+        <th>TOTAL PRICE</th>
+        <th>PAID?</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var order in orders)
+    {
+        <tr>
+            <td>@order.Id</td>
+            <td>@order.OrderPlaced.ToShortDateString()</td>
+            <td class="fw-bold">$@order.OrderTotal</td>
+            <td>@order.PaymentStatus.ToString()</td>
+            <td>
+                <a @onclick="() => GoToDetails(order.Id)" class="btn btn-primary">
+                    DETAILS
+                </a>
+            </td>
+        </tr>
+    }
+
+    </tbody>
+</table>
