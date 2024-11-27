@@ -10,6 +10,13 @@ using System.Reflection;
 var builder = WebApplication.CreateBuilder(args);
 
 // TODO: Add Orleans configuration
+builder.Host
+    .UseOrleansClient(client =>
+    {
+        client
+            .UseLocalhostClustering();
+    })
+    .ConfigureLogging(logging => logging.AddConsole());
 
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") 
